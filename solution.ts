@@ -27,8 +27,7 @@ if(typeof value === 'string'){
 if(Array.isArray(value)){
     return value.length
 }
-
-  return  0
+ return  0
 }
 
 
@@ -43,11 +42,53 @@ constructor(name: string, age: number){
  getDetails() : string {
    return `Name: ${this.name}, Age: ${this.age}`
  }
+}
+ 
 
+type Item = {
+title : string;
+rating : number
 }
 
-const person1 = new Person('John Doe', 30);
-console.log(person1.getDetails());
+function filterByRating (items: Item[]) : Item[] {
+   return items.filter(item => item.rating >= 4)
+}
 
-const person2 = new Person('Alice', 25);
-console.log(person2.getDetails());
+
+
+
+type Users = {
+    id: number;
+    name: string;
+    email: string;
+    isActive: boolean;
+}
+
+function filterActiveUsers(users : Users[]) : Users[] {
+return  users.filter(user => user.isActive) 
+}
+
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+function printBookDetails (book : Book) : void {
+const availability  = book.isAvailable ? "yes" : "NO";
+ console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${availability}`);
+}
+const myBook: Book = {
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  publishedYear: 1925,
+  isAvailable: true,
+};
+
+printBookDetails(myBook);
+
+
+
+
