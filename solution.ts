@@ -91,4 +91,21 @@ printBookDetails(myBook);
 
 
 
+function getUniqueValues(arr1: (number | string)[], arr2: (number | string)[]): (number | string)[] {
+  const result: (number | string)[] = [];
+  const combined = [...arr1, ...arr2];
+  
+  for (let i = 0; i < combined.length; i++) {
+    if (!result.includes(combined[i])) {
+      result.push(combined[i]);
+    }
+  }
 
+  return result;
+}
+
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+console.log(getUniqueValues(array1, array2));
